@@ -18,7 +18,7 @@ const Testimonial = () => {
                     <div className="flex items-center gap-1">
                         {/* REPEATING DARK STARS RATING NUMBER OF TIMES AND THE REST AS DULL STARS */}
                         {Array(5).fill(0).map((_, i) => (
-                            <img key={i} src={i < testimonial.rating ? assets.star_icon : assets.star_dull_icon} alt="star" classname='w-4 h-4'/>
+                            <img key={i} src={i < testimonial.rating ? assets.star_icon : assets.star_dull_icon} alt="star" className='w-4 h-4'/>
                         ))}
                     </div>
                     <p className='text-gray-500 text-sm my-5'>"{testimonial.content}"</p>
