@@ -24,7 +24,7 @@ const GenerateImages = () => {
           </div>
 
           <p className='mt-6 text-sm font-medium'>Describe Your Image</p>
-          <textarea rows={4} onChange={(e)=>setInput(e.target.value)} value={input} className='w-full p-2 px-3 mt-2 outline-none text-sm rounded-md border border-gray-300 focus:border-primary' placeholder='Describe the image you want to create...' required/>
+          <textarea rows={4} onChange={(e)=>setInput(e.target.value)} value={input} className='w-full p-2 px-3 mt-2 outline-none text-sm rounded-md border border-gray-300 focus:border-green-700' placeholder='Describe the image you want to create...' required/>
           <p className='mt-4 text-sm font-medium'>Style</p>
 
           <div className='mt-3 flex gap-3 flex-wrap sm:max-w-9/11'>

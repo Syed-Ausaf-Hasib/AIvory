@@ -24,7 +24,7 @@ const BlogTitles = () => {
           </div>
 
           <p className='mt-6 text-sm font-medium'>Keyboard</p>
-          <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" className='w-full p-2 px-3 mt-2 outline-none text-sm rounded-md border border-gray-300 focus:border-primary' placeholder='The future of artificial intelligence is...' required/>
+          <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" className='w-full p-2 px-3 mt-2 outline-none text-sm rounded-md border border-gray-300 focus:border-purple-700' placeholder='The future of artificial intelligence is...' required/>
           <p className='mt-4 text-sm font-medium'>Category</p>
 
           <div className='mt-3 flex gap-3 flex-wrap sm:max-w-9/11'>

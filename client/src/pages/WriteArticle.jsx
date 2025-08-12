@@ -27,8 +27,9 @@ const WriteArticle = () => {
         </div>
 
         <p className='mt-6 text-sm font-medium'>Article Topic</p>
-        <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" className='w-full p-2 px-3 mt-2 outline-none text-sm rounded-md border border-gray-300 focus:border-primary' placeholder='The future of artificial intelligence is...' required/>
+        <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" className='w-full p-2 px-3 mt-2 outline-none text-sm rounded-md border border-gray-300 focus:border-blue-700' placeholder='The future of artificial intelligence is...' required/>
         <p className='mt-4 text-sm font-medium'>Article Length</p>
+
         <div className='mt-3 flex gap-3 flex-wrap sm:max-w-9/11'>
           {
             articleLength.map((item, index) => (
