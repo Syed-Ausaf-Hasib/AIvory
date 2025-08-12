@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const navItems=[
     {to:'/ai', label:'Dashboard', Icon: House, colorFrom: '#3C81F6', colorTo: '#9234EA'},
     {to:'/ai/blog-titles', label:'Title Generation', Icon: Hash, colorFrom: '#B153EA', colorTo: '#fe40afff'},
-    {to:'/ai/write-article', label:'Article Generation', Icon: SquarePen, colorFrom: '#74abb7ff', colorTo: '#3588F2'},
+    {to:'/ai/write-article', label:'Article Generation', Icon: SquarePen, colorFrom: '#226BFF', colorTo: '#65ADFF'},
     {to:'/ai/generate-images', label:'Image Generation', Icon: Image, colorFrom: '#00784eff', colorTo: '#20C363'},
     {to:'/ai/remove-background', label:'Background Removal', Icon: Eraser, colorFrom: '#c55f23ff', colorTo: '#F04A3C'},
     {to:'/ai/remove-object', label: 'Object Removal', Icon: Scissors, colorFrom: '#3366ccff', colorTo: '#7984e7ff'},
