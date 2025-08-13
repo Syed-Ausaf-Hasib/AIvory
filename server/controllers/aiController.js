@@ -4,6 +4,7 @@ import axios from "axios";
 import {v2 as cloudinary} from 'cloudinary';
 import fs from 'fs'
 import pdf from 'pdf-parse/lib/pdf-parse.js'
+import { clerkClient } from "@clerk/express";
 
 const AI = new OpenAI({
     apiKey: process.env.GEMINI_API_KEY,
@@ -47,7 +48,7 @@ export const generateArticle = async (req, res) => {
 
         // Updating free usage if the user is on free plan
         if(plan !== 'premium'){
-            await  clerkClient.users.updateMetadata(userId, {
+            await  clerkClient.users.updateUserMetadata(userId, {
                 privateMetadata: {
                     free_usage: free_usage + 1
                 }
@@ -99,7 +100,7 @@ export const generateBlogTitle = async (req, res) => {
 
         // Updating free usage if the user is on free plan
         if(plan !== 'premium'){
-            await  clerkClient.users.updateMetadata(userId, {
+            await  clerkClient.users.updateUserMetadata(userId, {
                 privateMetadata: {
                     free_usage: free_usage + 1
                 }
@@ -224,7 +225,7 @@ export const removeImageObject = async (req, res) => {
     }
 }
 
-// REVIEWING RESUME USING CLOUDINARY 
+// REVIEWING RESUME USING OPENAI 
 export const resumeReview = async (req, res) => {
     try{
         // Taking the req and passing through auth
