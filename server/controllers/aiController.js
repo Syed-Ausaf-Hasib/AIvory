@@ -91,7 +91,7 @@ export const generateBlogTitle = async (req, res) => {
             ],
             temperature: 0.7,
             // Tells the AI how many characters long
-            max_tokens: 100,
+            max_tokens: 200,
         });
         const content = response.choices[0].message.content;
 
@@ -160,7 +160,7 @@ export const removeImageBackground = async (req, res) => {
         // Thus auth() is inbuilt function of clerk
         // It returns userId and has function to check the plan
         const {userId}= req.auth();
-        const {image} = req.file;
+        const image = req.file;
         // The next values were set by the auth middleware we created
         const plan = req.plan;
 
@@ -198,7 +198,7 @@ export const removeImageObject = async (req, res) => {
         // It returns userId and has function to check the plan
         const {userId}= req.auth();
         const {object} = req.body;
-        const {image} = req.file;
+        const image = req.file;
         // The next values were set by the auth middleware we created
         const plan = req.plan;
 

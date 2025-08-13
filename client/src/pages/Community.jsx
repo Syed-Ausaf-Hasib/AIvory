@@ -1,14 +1,57 @@
-import { useUser } from '@clerk/clerk-react'
+import { useAuth, useUser } from '@clerk/clerk-react'
 import React, { useEffect, useState } from 'react'
 import { dummyPublishedCreationData } from '../assets/assets'
-import { Heart } from 'lucide-react'
+import { Heart, Sparkles } from 'lucide-react'
+import axios from 'axios'
+import toast from 'react-hot-toast'
+
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
 const Community = () => {
   const [creations, setCreations] = useState([])
   const {user} = useUser()
+  const [loading, setLoading] = useState(true)
 
+  const {getToken} = useAuth()
+
+  // This fetches the published images from the server
   const fetchCreations = async()=>{
-    setCreations(dummyPublishedCreationData)
+    try{
+      const {data} = await axios.get(
+        'api/user/get-published-creations',
+        { headers: { 'Authorization': `Bearer ${await getToken()}` }  }
+      )
+    
+      if(data.success){
+        setCreations(Array.isArray(data.creations) ? data.creations : []);
+      }
+      else{
+        toast.error(data.message)
+      }
+    }catch(error){
+      toast.error(error.message)
+    }
+    setLoading(false)
+  }
+
+  // This toggles the likes
+  const imageLikeToggle = async (id) => {
+    try{
+      const {data} = await axios.post(
+        'api/user/toggle-like-creation',
+        { id },
+        { headers: { 'Authorization': `Bearer ${await getToken()}` } }
+      )
+      if(data.success){
+        toast.success(data.message)
+        await fetchCreations()
+      }else{
+        toast.error(data.message)
+      }
+    }
+    catch (error) {
+      toast.error(error.message)
+    }
   }
 
   useEffect(()=>{
@@ -17,9 +60,13 @@ const Community = () => {
     }
   },[user])
 
-  return (
+  return !loading ? (
     <div className='flex-1 h-full flex flex-col gap-4 p-6'>
-        Creations
+        <div className='flex items-center gap-3 bg-white w-85 pl-[20px] pt-[8px] pb-[8px] mb-[-25px] rounded-t-lg'>
+            <Sparkles className='w-6 text-[#cc1b1bff]'/>
+            <h1 className='text-2xl font-semibold text-gray-700'>Community Creations</h1>
+        </div>
+        
         <div className='bg-white h-full w-full rounded-xl overflow-y-scroll'>
           {
             creations.map((creation, index)=>(
@@ -30,7 +77,7 @@ const Community = () => {
                     <p className='text-sm hidden group-hover:block'>{creation.prompt}</p>
                     <div className='flex gap-1 items-center'>
                       <p>{creation.likes.length}</p>
-                      <Heart className={`min-w-5 h-5 hover:scale-110 cursor-pointer ${creation.likes.includes(user.id) ?'fill-red-500 text-red-600' : 'text-white'}`}/>
+                      <Heart onClick={()=>imageLikeToggle(creation.id)} className={`min-w-5 h-5 hover:scale-110 cursor-pointer ${creation.likes.includes(user.id) ?'fill-red-500 text-red-600' : 'text-white'}`}/>
                     </div>
                   </div>
 
@@ -38,6 +85,12 @@ const Community = () => {
             ))
           }
         </div>
+    </div>
+  )
+  :
+  (
+    <div className='flex justify-center items-center h-3/4 mt-[87px] mr-[14px]'>
+        <span className='w-11 h-11 rounded-full border-3 border-[#cc1b1bff] border-t-transparent animate-spin'></span>
     </div>
   )
 }
