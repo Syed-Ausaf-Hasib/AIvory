@@ -13,6 +13,15 @@ import { SquarePen, Hash, Image, Eraser, Scissors, FileText } from 'lucide-react
 import ai_gen_img_1 from "./ai_gen_img_1.png";
 import ai_gen_img_2 from "./ai_gen_img_2.png";
 import ai_gen_img_3 from "./ai_gen_img_3.png";
+import ReactLogo from "./ReactLogo.png";
+import AxiosLogo from "./AxiosLogo.png";
+import ViteLogo from "./ViteLogo.png";
+import TailwindCSSLogo from "./TailwindCSSLogo.png";
+import ClerkLogo from "./ClerkLogo.png";
+import ReactRouterLogo from "./ReactRouterLogo.png";
+import NodeLogo from "./NodeLogo.png";
+import ExpressLogo from "./ExpressLogo.png";
+import NeonLogo from "./NeonLogo.png";
 
 export const assets = {
     logo,
@@ -26,6 +35,16 @@ export const assets = {
     profile_img_4,
     profile_img_5,
     arrow_icon,
+    ai_gen_img_1,
+    ReactLogo,
+    AxiosLogo,
+    ViteLogo,
+    TailwindCSSLogo,
+    ClerkLogo,
+    ReactRouterLogo,
+    NodeLogo,
+    ExpressLogo,
+    NeonLogo,
 };
 
 export const AiToolsData = [

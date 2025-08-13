@@ -1,41 +1,20 @@
 import React from 'react'
 import { assets } from '../assets/assets';
+import { useNavigate } from 'react-router-dom';
+import { FileText, Github, Instagram, Laptop, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
-  return (
-        <footer className="px-6 md:px-16 lg:px-24 xl:px-32 pt-8 w-full text-gray-500 mt-20">
-            <div className="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-500/30 pb-6">
-                <div className="md:max-w-96">
-                    <img className="h-9" src={assets.logo} alt="logo" />
-                    <p className="mt-6 text-sm">
-                        Experience the power of AI with AIvory.ai <br />Transform your content creation with our suite of premium AI tools. Write articles, generate images, and enhance your workflow.
-                    </p>
-                </div>
-                <div className="flex-1 flex items-start md:justify-end gap-20">
-                    <div>
-                        <h2 className="font-semibold mb-5 text-gray-800">Company</h2>
-                        <ul className="text-sm space-y-2">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 className="font-semibold text-gray-800 mb-5">Subscribe to our newsletter</h2>
-                        <div className="text-sm space-y-2">
-                            <p>The latest news, articles, and resources, sent to your inbox weekly.</p>
-                            <div className="flex items-center gap-2 pt-4">
-                                <input className="border border-gray-500/30 placeholder-gray-500 focus:ring-2 ring-indigo-600 outline-none w-full max-w-64 h-9 rounded px-2" type="email" placeholder="Enter your email" />
-                                <button className="sm:p-2 w-24 h-9 text-white rounded bg-primary cursor-pointer">Subscribe</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    return (
+        <footer className="flex flex-col items-center justify-center w-full py-20 bg-gradient-to-b from-white to-[#8e8e8e70] text-black/70 mb-[-100px]">
+            <img src={assets.logo} alt="Logo"  className='w-60 hover:-translate-y-0.5 transition-all duration-300'/>
+            <p className="mt-4 text-center hover:-translate-y-0.5 transition-all duration-300">Copyright © 2025 <a href="https://www.linkedin.com/in/ausaf-hasib-7seven7/">Syed Ausaf Hasib</a>. All rights reservered.</p>
+            <div className="flex items-center gap-4 mt-6">
+                <FileText className="text-gray-500 w-6 h-6 cursor-pointer hover:-translate-y-0.5 transition-all duration-300" onClick={() => window.location.href = 'https://drive.google.com/drive/folders/1-1PPFIQ1gCeYcLGo0XsFLxJTz8aSEWM8?usp=sharing'}/>
+                <Github className="text-gray-500 w-6 h-6 cursor-pointer hover:-translate-y-0.5 transition-all duration-300" onClick={() => window.location.href = 'https://github.com/Syed-Ausaf-Hasib'}/>
+                <Laptop className="text-gray-500 w-6 h-6 cursor-pointer hover:-translate-y-0.5 transition-all duration-300" onClick={() => window.location.href = 'https://leetcode.com/u/Ausaf_Hasib/'}/>
+                <Linkedin className="text-gray-500 w-6 h-6 cursor-pointer hover:-translate-y-0.5 transition-all duration-300" onClick={() => window.location.href = 'https://www.linkedin.com/in/ausaf-hasib-7seven7/'}/>
+                <Mail className="text-gray-500 w-6 h-6 cursor-pointer hover:-translate-y-0.5 transition-all duration-300" onClick={() => window.location.href = 'mailto:syedausaf2003@gmail.com'}/>
             </div>
-            <p className="pt-4 text-center text-xs md:text-sm pb-5">
-                Copyright 2025 © Syed Ausaf Hasib. All Right Reserved.
-            </p>
         </footer>
     );
 }
