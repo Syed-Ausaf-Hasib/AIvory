@@ -59,7 +59,7 @@ const Hero = () => {
                 </div>
             ):(
                 <div className='flex items-center gap-4 mt-8 mx-auto text-gray-600'>
-                    <span className='w-8 h-8 rounded-full border-3 border-purple-700 border-t-transparent animate-spin'></span>
+                    <span className='w-8 h-8 rounded-full border-3 border-primary border-t-transparent animate-spin'></span>
                 </div>
             )
         }
