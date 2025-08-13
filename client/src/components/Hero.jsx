@@ -2,9 +2,32 @@ import { useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import StackUsed from './StackUsed'
 import toast from 'react-hot-toast'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
 const Hero = () => {
     const navigate = useNavigate()
+    const [trustedCount, setTrustedCount] = useState()
+
+    const trustedUsers = async () => {
+        try{
+            const {data} = await axios.get('api/trust/get-trusted-users-count')
+            if(data.success){
+                setTrustedCount(data.count)
+            }
+            else{
+                toast.error(data.message)
+            }
+        }
+        catch(error){
+            toast.error(error.message)
+        }
+    }
+    useEffect(() => {
+        trustedUsers()
+    }, [])
 
   return (
     <div className='pt-15 px-4 sm:px-20 xl:px-32 relative inline-flex flex-col w-full justify-center bg-[url(/gradientBackground.png)] bg-cover bg-no-repeat min-h-screen'>
@@ -28,9 +51,19 @@ const Hero = () => {
         </div>
 
         {/* Dummy Users */}
-        <div className='flex items-center gap-4 mt-8 mx-auto text-gray-600'>
-            <img src={assets.user_group} alt="" className='h-8'/> Trusted by 1000+ users
-        </div>
+        {
+            trustedCount?
+            (
+                <div className='flex items-center gap-4 mt-8 mx-auto text-gray-600'>
+                    <img src={assets.user_group} alt="" className='h-8'/> Trusted by {trustedCount}+ users
+                </div>
+            ):(
+                <div className='flex items-center gap-4 mt-8 mx-auto text-gray-600'>
+                    <span className='w-8 h-8 rounded-full border-3 border-purple-700 border-t-transparent animate-spin'></span>
+                </div>
+            )
+        }
+        
 
         <StackUsed/>
     </div>
