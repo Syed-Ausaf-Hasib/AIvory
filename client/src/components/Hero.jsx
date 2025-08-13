@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import StackUsed from './StackUsed'
+import toast from 'react-hot-toast'
 
 const Hero = () => {
     const navigate = useNavigate()
@@ -23,7 +24,7 @@ const Hero = () => {
         {/* Buttons */}
         <div className='flex flex-wrap justify-center gap-4 text-sm max-sm:text-xs'>
             <button onClick={()=> navigate('/ai')}className='bg-primary text-white px-10 py-3 rounded-lg hover:scale-102 active:scale-95 transition cursor-pointer'>Start creating now</button>
-            <button className='bg-white px-10 py-3 rounded-lg border border-gray-300 hover:scale-102 active:scale-95 active:border-primary transition cursor-pointer'>Watch demo</button>
+            <button onClick={()=> toast.error('This feature is not added yet') } className='bg-white px-10 py-3 rounded-lg border border-gray-300 hover:scale-102 active:scale-95 active:border-primary transition cursor-pointer'>Watch demo</button>
         </div>
 
         {/* Dummy Users */}
