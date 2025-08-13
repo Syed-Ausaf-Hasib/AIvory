@@ -1,4 +1,4 @@
-# AIvory
+# AIvory (https://aivory-kappa.vercel.app/)
 
 AIvory is a full-stack web application that provides a suite of AI-powered tools for content creation and enhancement. It leverages various AI APIs to offer services like article writing, image generation, resume analysis, and more, all wrapped in a clean, modern user interface.
 
@@ -117,3 +117,4 @@ All API routes require user authentication via Clerk.
 - `GET /get-user-creations`: Fetches all creations for the authenticated user.
 - `GET /get-published-creations`: Fetches all publicly shared creations.
 - `POST /toggle-like-creation`: Likes or unlikes a creation.
+
