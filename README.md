@@ -118,3 +118,5 @@ All API routes require user authentication via Clerk.
 - `GET /get-published-creations`: Fetches all publicly shared creations.
 - `POST /toggle-like-creation`: Likes or unlikes a creation.
 
+### Trusted user Endpoints (`/api/trust`)
+- `GET /get-trusted-users-count`: Fetches all accounts created and displays count in Hero section.
