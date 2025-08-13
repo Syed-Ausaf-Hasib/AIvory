@@ -55,7 +55,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
 
         {/* Footer of Sidebar */}
         <div className='w-full border-t border-gray-200 p-4 px-7 flex items-center justify-between'>
-            <div onClick={openUserProfile} className='fex gap-2 items-center cursor-pointer'>
+            <div onClick={openUserProfile} className='flex gap-2 items-center cursor-pointer'>
                 <img src={user.user.imageUrl} alt="avaterLogo" className='w-8 rounded-full'/>
                 <div>
                     <h1 className='text-sm font-medium'>{user.user.fullName}</h1>
