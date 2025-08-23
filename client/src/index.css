@@ -1,9 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+/* @layer theme, base, clerk, components, utilities; */
+
 
 .marquee-inner {
     animation: marqueeScroll linear infinite;
+}
+/* bg-gray-900 text-gray-300 border-gray-700 hover:bg-gray-700 */
+/* 365153 */
+/* d1d5dc */
+
+.dark .cl-pricingTableCardFooter,
+.dark .cl-pricingTableCardFeatures,
+.dark .cl-pricingTableCardHeader,
+.dark .cl-pricingTableCardFooter,
+.dark .cl-internal-1ujha49 {
+  background-color: #0b111e;
+}
+
+.dark .cl-pricingTableCardFeatures{
+  background-color: #101828;
+}
+
+.dark .cl-pricingTableCardTitle,
+.dark .cl-pricingTableCardFee,
+.dark .cl-pricingTableCardFeePeriod,
+.dark .cl-pricingTableCardFeePeriodNotice,
+.dark .cl-pricingTableCardFeaturesListItemTitle,
+.dark .cl-pricingTableCardFooterNotice,
+.dark .cl-internal-17smdcw{
+  color: #d1d5dc;
+}
+
+.dark .cl-pricingTableCard{
+  border: 1px solid #374151;
+}
+
+.dark .cl-button,
+.dark .cl-badge{
+  background-color: #5044E5;
+  color: #d1d5dc;
+}
+
+.cl-pricingTableCard {
+  transition: transform 0.3s ease-out; /* applies to both hover in + out */
+}
+
+.cl-pricingTableCard:hover {
+  transform: scale(1.02);
+}
+
+.cl-userButtonAvatarBox {
+  border-radius: 9999px !important;
+  aspect-ratio: 1 / 1 !important;
+  width: 36px !important;
+  height: 36px !important;
+  object-fit: cover !important;
+}
+
+.dark .cl-drawerBody{
+  background-color: #101828;
+}
+
+.strokeme
+{
+    color: #5044E5;
+    text-shadow:
+    -1px 1px 0 #9c98d3;
+    /* 1px -1px 0 #d1d5dc36,
+    -1px 1px 0 #d1d5dc36,
+    1px 1px 0 #d1d5dc36; */
+    
 }
 
 @keyframes marqueeScroll {
@@ -20,8 +88,13 @@
   font-family: "Outfit", sans-serif;
 }
 
+.body{
+  background-color: #9c98d3;
+}
+
 @theme{
   --color-primary: #5044E5;
+  --color-secondary: #9c98d3;
 }
 
 @keyframes gradient-move {

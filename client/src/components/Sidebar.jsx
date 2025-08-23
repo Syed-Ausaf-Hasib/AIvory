@@ -2,6 +2,7 @@ import { Protect, useClerk, useUser } from '@clerk/clerk-react'
 import { Eraser, FileText, Hash, House, Image, LogOut, Scissors, SquarePen, Users } from 'lucide-react';
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import { useDarkMode } from '../context/DarkModeContext';
 
 const navItems=[
     {to:'/ai', label:'Dashboard', Icon: House, colorFrom: '#3C81F6', colorTo: '#9234EA'},
@@ -17,9 +18,10 @@ const navItems=[
 const Sidebar = ({ sidebar, setSidebar }) => {
     const user = useUser();
     const {signOut, openUserProfile} = useClerk();
+    const { darkMode } = useDarkMode();
 
   return (
-    <div className={`z-10 w-60 bg-white border-r border-gray-200 flex flex-col justify-between items-center max-sm:absolute top-14 bottom-0 ${sidebar ? 'translate-x-0' : 'max-sm:-translate-x-full'} transition-all duration-300 ease-in-out`}>
+    <div className={`z-10 w-60 flex flex-col justify-between items-center max-sm:absolute top-14 bottom-0 transition-all duration-300 ease-in-out ${sidebar ? 'translate-x-0' : 'max-sm:-translate-x-full'} ${darkMode? 'bg-gray-900 border-gray-700 text-gray-100 border-r border-gray-700' : 'bg-white border-r border-gray-200'}`}>
         
         <div className='my-7 w-full'>
 
@@ -27,7 +29,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
             <img src={user.user.imageUrl} alt="User Avatar" className='w-13 rounded-full mx-auto'/>
             <h1 className='mt-3 mb-6 text-center'>{user.user.fullName}</h1>
 
-            <div className='px-6 mt-3 text-sm text-gray-600 font-medium'>
+            <div className={`px-6 mt-3 text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             {/* Navigation Buttons */}
             {
                 navItems.map(({to, label, Icon, colorFrom, colorTo}) => (
@@ -54,7 +56,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
         </div>
 
         {/* Footer of Sidebar */}
-        <div className='w-full border-t border-gray-200 p-4 px-7 flex items-center justify-between'>
+        <div className={`transition-all duration-300 w-full border-t p-4 px-7 flex items-center justify-between ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
             <div onClick={openUserProfile} className='flex gap-2 items-center cursor-pointer'>
                 <img src={user.user.imageUrl} alt="avaterLogo" className='w-8 rounded-full'/>
                 <div>
@@ -64,7 +66,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                     </p>
                 </div>
             </div>
-            <LogOut onClick={signOut} className='w-4.5 text-gray-500 hover:text-gray-800 transition cursor-pointer' />
+            <LogOut onClick={signOut} className={`transition-all duration-300 w-4.5 hover:text-gray-800 transition cursor-pointer ${darkMode? 'text-gray-300':'text-gray-500 '}`} />
         </div>
     </div>
   )

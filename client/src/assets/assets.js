@@ -23,9 +23,22 @@ import NodeLogo from "./NodeLogo.png";
 import ExpressLogo from "./ExpressLogo.png";
 import NeonLogo from "./NeonLogo.png";
 
+import ReactLogoDark from "./ReactLogoDark.png";
+import AxiosLogoDark from "./AxiosLogoDark.png";
+import ViteLogoDark from "./ViteLogoDark.png";
+import TailwindCSSLogoDark from "./TailwindCSSLogoDark.png";
+import ClerkLogoDark from "./ClerkLogoDark.png";
+import ReactRouterLogoDark from "./ReactRouterLogoDark.png";
+import NodeLogoDark from "./NodeLogoDark.png";
+import ExpressLogoDark from "./ExpressLogoDark.png";
+import NeonLogoDark from "./NeonLogoDark.png";
+import gradientBackgroundDark from "./gradientBackgroundDark.png";
+import Rays from "./Rays.png";
+
 export const assets = {
     logo,
     gradientBackground,
+    gradientBackgroundDark,
     user_group,
     star_icon,
     star_dull_icon,
@@ -45,6 +58,17 @@ export const assets = {
     NodeLogo,
     ExpressLogo,
     NeonLogo,
+
+    ReactLogoDark,
+    AxiosLogoDark,
+    ViteLogoDark,
+    TailwindCSSLogoDark,
+    ClerkLogoDark,
+    ReactRouterLogoDark,
+    NodeLogoDark,
+    ExpressLogoDark,
+    NeonLogoDark,
+    Rays,
 };
 
 export const AiToolsData = [

@@ -3,6 +3,7 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ClerkProvider } from '@clerk/clerk-react'
+import { DarkModeProvider } from './context/DarkModeContext.jsx'
 
 //Import publishable key from environment variables
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -10,11 +11,13 @@ const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 if (!PUBLISHABLE_KEY) {
   throw new Error('Missing Publishable Key')
 }
- 
+
 createRoot(document.getElementById('root')).render(
   <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutURL='/'>
     <BrowserRouter>
-      <App />
-    </BrowserRouter>,
+      <DarkModeProvider>
+        <App />
+      </DarkModeProvider>
+    </BrowserRouter>
   </ClerkProvider>
 )

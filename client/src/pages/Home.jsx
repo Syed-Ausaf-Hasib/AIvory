@@ -5,18 +5,23 @@ import AiTools from '../components/AiTools'
 import Testimonial from '../components/Testimonial'
 import Plan from '../components/Plan'
 import Footer from '../components/Footer'
-import StackUsed from '../components/StackUsed'
+import { useDarkMode } from '../context/DarkModeContext'
+import toast from 'react-hot-toast'
+import { useEffect } from 'react'
 
 const Home = () => {
+  // Dark mode state can be managed here or in a context/provider
+  const { darkMode } = useDarkMode()
+
   return (
-    <>
+    <div className={`transition-all duration-300 ${darkMode? 'bg-gray-950':''}`}>
       <Navbar/>
       <Hero/>
       <AiTools/>
       <Testimonial/>
       <Plan/>
       <Footer/>
-    </>
+    </div>
   )
 }
 
