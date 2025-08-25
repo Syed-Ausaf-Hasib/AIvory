@@ -5,6 +5,7 @@ import toast from 'react-hot-toast'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useDarkMode } from '../context/DarkModeContext'
+import Loop from './Loop'
 
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
@@ -32,7 +33,7 @@ const Hero = () => {
     }, [])
 
     return (
-        <div className={`transition-all duration-300 pt-15 px-4 sm:px-20 xl:px-32 relative inline-flex flex-col w-full justify-center min-h-screen ${darkMode ? '' : 'bg-[url(/gradientBackground.png)] bg-cover bg-no-repeat'}`}>
+        <div className={`transition-all duration-300 pt-35 px-4 sm:px-20 xl:px-32 relative inline-flex flex-col w-full justify-center min-h-screen ${darkMode ? '' : 'bg-[url(/gradientBackground.png)] bg-cover bg-no-repeat'}`}>
             {/* Text section */}
             <div className='text-center mb-6'>
                 <h1 className={`transition-all duration-300 text-3xl sm:text-5xl md:text-6xl 2xl:text-7xl font-semibold mx-auto leading-[1.2] ${darkMode ? 'text-gray-300' : ''}`}>
@@ -73,8 +74,8 @@ const Hero = () => {
                     )
             }
 
-
-            <StackUsed />
+            <Loop/>
+            {/* <StackUsed /> */}
         </div>
     )
 }

@@ -6,8 +6,6 @@ import Testimonial from '../components/Testimonial'
 import Plan from '../components/Plan'
 import Footer from '../components/Footer'
 import { useDarkMode } from '../context/DarkModeContext'
-import toast from 'react-hot-toast'
-import { useEffect } from 'react'
 
 const Home = () => {
   // Dark mode state can be managed here or in a context/provider
